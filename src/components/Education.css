@@ -1,0 +1,420 @@
+.education-2026 {
+    background: #000000;
+    padding: var(--spacing-3xl) 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.edu-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 71, 87, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 71, 87, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.edu-header-2026 {
+    margin-bottom: var(--spacing-3xl);
+    position: relative;
+    z-index: 10;
+}
+
+.edu-header-2026 h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
+    color: white;
+    margin: 0;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.header-meta-2026 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.meta-tag {
+    color: #ff4757;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: monospace;
+    opacity: 0.7;
+}
+
+.meta-line {
+    flex: 1;
+    max-width: 150px;
+    height: 1px;
+    background: linear-gradient(90deg, #ff4757, transparent);
+}
+
+.edu-timeline-2026 {
+    position: relative;
+    margin-top: 50px;
+    padding-left: 50px;
+}
+
+.edu-laser-line {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 71, 87, 0.2);
+    z-index: 2;
+}
+
+.edu-laser-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #ff4757, transparent);
+    background-size: 100% 200%;
+    animation: laserWave 4s linear infinite;
+}
+
+@keyframes laserWave {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 200%;
+    }
+}
+
+.laser-pulse {
+    position: absolute;
+    top: 0;
+    left: -4px;
+    width: 10px;
+    height: 0;
+    background: #ff4757;
+    box-shadow: 0 0 15px #ff4757;
+    transition: height 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.laser-pulse.active {
+    height: 100%;
+}
+
+.edu-nodes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.edu-node-2026 {
+    position: relative;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: var(--delay, 0s);
+}
+
+.edu-node-2026.reveal {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.node-marker {
+    position: absolute;
+    left: -42px;
+    top: 40px;
+    width: 25px;
+    height: 1px;
+    background: #ff4757;
+    z-index: 5;
+}
+
+.inner-dot {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 5px;
+    height: 5px;
+    background: #ff4757;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff4757;
+}
+
+.edu-card-2026 {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 71, 87, 0.15);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    transition: all 0.4s ease;
+}
+
+.edu-card-2026:hover {
+    border-color: rgba(255, 71, 87, 0.4);
+    background: rgba(255, 71, 87, 0.03);
+    transform: translateY(-5px);
+}
+
+.card-scanner {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 71, 87, 0.1), transparent);
+    pointer-events: none;
+}
+
+.edu-card-2026:hover .card-scanner {
+    animation: scannerRow 2s linear infinite;
+}
+
+@keyframes scannerRow {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.card-corner {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ff4757;
+    opacity: 0.4;
+}
+
+.card-corner.tl {
+    top: -1px;
+    left: -1px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.card-corner.br {
+    bottom: -1px;
+    right: -1px;
+    border-left: 0;
+    border-top: 0;
+}
+
+.edu-card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.edu-id {
+    font-size: 10px;
+    font-weight: 900;
+    color: #ff4757;
+    font-family: monospace;
+    opacity: 0.6;
+}
+
+.edu-status {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.edu-status.verified {
+    color: #00ff9d;
+}
+
+.edu-status.in_progress {
+    color: #ffeb3b;
+}
+
+.edu-status.completed {
+    color: #4facfe;
+}
+
+.edu-degree {
+    font-size: var(--fs-lg);
+    font-weight: 900;
+    color: white;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+}
+
+.edu-institute-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.edu-period {
+    color: #ff4757;
+    font-size: 10px;
+    font-weight: 800;
+    background: rgba(255, 71, 87, 0.1);
+    padding: 1px 6px;
+}
+
+.edu-institution {
+    color: var(--text-secondary);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    margin: 0;
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.edu-desc {
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.edu-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 71, 87, 0.1);
+    padding-top: 15px;
+}
+
+.edu-meta {
+    font-size: 9px;
+    font-weight: 900;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-visual-acc {
+    display: flex;
+    gap: 4px;
+}
+
+.acc-bar {
+    width: 20px;
+    height: 3px;
+    background: rgba(255, 71, 87, 0.2);
+}
+
+.edu-card-2026:hover .acc-bar {
+    background: #ff4757;
+    box-shadow: 0 0 5px #ff4757;
+}
+
+/* Glitch Title Effect */
+.glitch-text {
+    position: relative;
+    cursor: default;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text:hover::before {
+    display: block;
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text:hover::after {
+    display: block;
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(31px, 9999px, 94px, 0);
+    }
+
+    20% {
+        clip: rect(62px, 9999px, 42px, 0);
+    }
+
+    40% {
+        clip: rect(16px, 9999px, 78px, 0);
+    }
+
+    60% {
+        clip: rect(87px, 9999px, 11px, 0);
+    }
+
+    100% {
+        clip: rect(9px, 9999px, 66px, 0);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(65px, 9999px, 100px, 0);
+    }
+
+    20% {
+        clip: rect(30px, 9999px, 50px, 0);
+    }
+
+    40% {
+        clip: rect(80px, 9999px, 30px, 0);
+    }
+
+    60% {
+        clip: rect(10px, 9999px, 80px, 0);
+    }
+
+    100% {
+        clip: rect(90px, 9999px, 70px, 0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edu-timeline-2026 {
+        padding-left: 30px;
+    }
+
+    .edu-laser-line {
+        left: 10px;
+    }
+
+    .node-marker {
+        left: -22px;
+    }
+
+    .edu-degree {
+        font-size: var(--fs-xl);
+    }
+
+    .edu-institute-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .separator {
+        display: none;
+    }
+}
